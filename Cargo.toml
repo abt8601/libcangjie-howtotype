@@ -3,7 +3,7 @@ name = "libcangjie-howtotype"
 version = "0.1.0"
 authors = ["Po-Yi Tsai <abt8601@protonmail.ch>"]
 edition = "2024"
-rust-version = "1.84"
+rust-version = "1.87"
 description = "Find out how to type a character by querying libcangjie's database"
 repository = "https://github.com/abt8601/libcangjie-howtotype"
 license = "Unlicense"
@@ -11,3 +11,14 @@ keywords = ["cangjie"]
 categories = ["command-line-utilities"]
 
 [dependencies]
+rusqlite = "0.36.0"
+smallvec = "1.0"
+thiserror = "2.0"
+
+[features]
+rusqlite-bundled = ["rusqlite/bundled"]
+rusqlite-sqlcipher = ["rusqlite/sqlcipher"]
+rusqlite-bundled-sqlcipher = ["rusqlite/bundled-sqlcipher"]
+rusqlite-bundled-sqlcipher-vendored-openssl = [
+    "rusqlite/bundled-sqlcipher-vendored-openssl",
+]
