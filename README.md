@@ -6,7 +6,30 @@ This repository contains a CLI tool and a Rust library.
 
 ## CLI Usage
 
-TBD
+### CLI Synopsis
+
+```
+Find out how to type a character by querying libcangjie's database
+
+Usage: libcangjie-howtotype [OPTIONS] <CHARACTER>
+
+Arguments:
+  <CHARACTER>  The character to query
+
+Options:
+  -C, --cj-version <VERSION>   The version of Cangjie used [default: 3] [possible values: 3, 5]
+  -f, --format <FORMAT>        The output format [default: radical] [possible values: code, radical]
+  -s, --separator <SEPARATOR>  The separator between codes [default: "\n"]
+  -q, --quiet                  Do not report an error when the command doesn't know how to type
+  -h, --help                   Print help
+  -V, --version                Print version
+```
+
+### CLI Examples
+
+```sh
+libcangjie-howtotype 喵 # 口廿田
+```
 
 ## Library Usage
 

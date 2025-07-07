@@ -15,10 +15,41 @@ rusqlite = "0.36.0"
 smallvec = "1.0"
 thiserror = "2.0"
 
+clap = { version = "4.0", optional = true, features = ["derive"] }
+exitcode = { version = "1.0", optional = true }
+human-panic = { version = "2.0", optional = true }
+itertools = { version = "0.14.0", optional = true }
+
+[dev-dependencies]
+assert_cmd = "2.0"
+predicates = "3.0"
+
 [features]
+cli = ["clap", "exitcode", "human-panic", "itertools"]
+
 rusqlite-bundled = ["rusqlite/bundled"]
 rusqlite-sqlcipher = ["rusqlite/sqlcipher"]
 rusqlite-bundled-sqlcipher = ["rusqlite/bundled-sqlcipher"]
 rusqlite-bundled-sqlcipher-vendored-openssl = [
     "rusqlite/bundled-sqlcipher-vendored-openssl",
 ]
+
+[[bin]]
+name = "libcangjie-howtotype"
+required-features = ["cli"]
+
+[[test]]
+name = "cli-meow"
+required-features = ["cli"]
+
+[[test]]
+name = "cli-versions"
+required-features = ["cli"]
+
+[[test]]
+name = "cli-formats"
+required-features = ["cli"]
+
+[[test]]
+name = "cli-dont-know"
+required-features = ["cli"]
